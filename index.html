@@ -98,5 +98,20 @@
   <p>Built for PH preparation ✍️ | Focus. Discipline. Progress.</p>
 </footer>
 
+  <script>
+  const subjects = document.querySelectorAll('.card');
+
+  subjects.forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.querySelector('h3').innerText;
+      let progress = localStorage.getItem(name) || 0;
+      progress = parseInt(progress) + 10;
+      if (progress > 100) progress = 100;
+      localStorage.setItem(name, progress);
+      alert(name + " progress: " + progress + "%");
+    });
+  });
+</script>
+
 </body>
 </html>
